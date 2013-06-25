@@ -99,8 +99,8 @@
 					tooltip.append($("<p><strong>River</strong>: " + results.foi.name + "</p>"));
 				
 				tooltip.append($("<p><strong>Mink spotted</strong>: " + results.count + "</p>"))
-					   .append($("<p><strong>Sighting made</strong>: " + results.samplingTime + "</p>"))
-					   .append($("<p><strong>Report made</strong>: " + results.resultTime + "</p>"))
+					   .append($("<p><strong>Sighting made</strong>: " + parseDate(results.samplingTime) + "</p>"))
+					   .append($("<p><strong>Report made</strong>: " + parseDate(results.resultTime) + "</p>"))
 					   .append($("<p><strong>Status</strong>: " + results.status + " </p>"))
 					   .append($("<h3>Attributed to</h3>"))
 					   .append($("<p><strong>Name</strong>: " + results.agent.name + "</p>"))
@@ -160,4 +160,14 @@
 				alert("Error downloading sighting data");
 			}
 		});	
+	}
+	
+	function parseDate(timestamp)
+	{
+		months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+		days = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+		
+		dObj = new Date(parseInt(timestamp));
+		humanDate = "" + days[dObj.getDay()] + " " + dObj.getDate() + " " + months[dObj.getMonth()] + " " + dObj.getFullYear();
+		return humanDate;
 	}
