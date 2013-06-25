@@ -1,0 +1,117 @@
+html
+{
+	font-family: Helvetica;
+	font-size: 12pt;
+}
+
+body
+{
+	width: 1000px;
+	margin: auto;
+	padding-top: 10px;
+}
+
+#datasetSelector
+{
+	width: 1000px;
+	background: #63d1f4;
+	padding: 10px;
+	border:2px solid #1874cd;
+	border-radius:15px;
+	margin-bottom: 10px;
+}
+
+.placeholder
+{
+	width: 750px;
+	height: 200px;
+	background-repeat: none;
+	background-position: center;
+	margin: 20px;
+	float: left;
+}
+
+.provDesc
+{
+	width: 400px;
+	background: #c1f0f6;
+	padding: 5px;
+	margin: auto;
+}
+
+.overview
+{
+	float:left;
+	margin-left:20px;
+	margin-top: 25px;
+}
+
+
+#locationPlaceholder
+{
+	width: 1023px;
+	float: none;
+	clear: both;
+}
+
+#tooltip
+{
+	display: none;
+	float: left;
+	position: absolute;
+	z-index: 1000000000;
+	border: 2px solid #f00;
+	background: #fff;
+	padding: 10px;
+	border-radius: 10px;
+	min-width: 320px;
+	font-size: 10pt;
+}
+
+ul
+{
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 20px;
+}
+
+p
+{
+	margin: 0px;
+	line-height: 20px;	
+}
+
+div.qualityBar
+{
+	width: 90%;
+	margin: auto;
+	height: 10px;
+	border: 1px solid #000;
+}
+
+div.qualityMagnitude
+{
+	height: 10px;
+	width: 0;
+	background: #f00;
+}
+
+h1,h2,h3,h4
+{
+	margin-bottom: 5px;
+	padding: 0;
+}
+
+.tt
+{
+	font-family: "Courier New";
+	font-weight: bold;
+}
+
+pre
+{
+	width: 640px;
+	height: 480px;
+	font-size: 9pt;
+	overflow: auto;
+}

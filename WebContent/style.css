@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+html
+{
+	font-family: Helvetica;
+	font-size: 12pt;
+}
+
+th
+{
+	border-bottom: 1px solid #000;
+}
+
+td
+{
+	text-align: center;
+	padding: 10px;
+}
