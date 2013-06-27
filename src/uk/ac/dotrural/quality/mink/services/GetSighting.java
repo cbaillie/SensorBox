@@ -63,10 +63,7 @@ public class GetSighting extends HttpServlet {
 		query.append("  ?value mink:count ?count . ");
 		query.append("  ?value mink:status ?status . ");
 		query.append("  ?foi mink:name ?riverName . ");
-		query.append("  ?agent <" + Data.FOAFNS.concat("member") + "> ?group . ");
-		query.append("	OPTIONAL {");
-		query.append("    ?agent <" + Data.FOAFNS.concat("name") + "> ?agentName . ");
-		query.append("	}");
+		query.append("  ?agent <" + Data.PROVNS.concat("hadRole") + "> ?group . ");
 		query.append("}");
 		
 		System.out.println(query.toString());
@@ -88,10 +85,7 @@ public class GetSighting extends HttpServlet {
 			Literal status = qs.getLiteral("status");
 			Literal riverName = qs.getLiteral("riverName");
 			Resource group = qs.getResource("group");
-			Literal agentName = null;
-			
-			if(qs.contains("agentName"))
-				agentName = qs.getLiteral("agentName");
+			Resource agent = qs.getResource("agent");
 			
 			StringBuilder result = new StringBuilder();
 			result.append("{ ");
@@ -105,10 +99,10 @@ public class GetSighting extends HttpServlet {
 			result.append("    \"name\" : \"" + riverName.getLexicalForm() + "\"");
 			result.append("  },");
 			result.append("  \"agent\" : {");
-			if(agentName != null)
-				result.append("    \"name\" : \"" + agentName.getLexicalForm() + "\",");
-			else
+			if(agent.getLocalName().contains("Null"))
 				result.append("    \"name\" : \"unknown\",");
+			else
+				result.append("    \"name\" : \"" + agent.getLocalName() + "\",");
 			result.append("    \"group\" : \"" + group.getLocalName() + "\"");
 			result.append("  },");
 			result.append(assessmentResults);
@@ -159,10 +153,7 @@ public class GetSighting extends HttpServlet {
 							"?value mink:count ?count . " + 
 							"?value mink:status ?status . " + 
 							"?foi mink:name ?riverName . " + 
-							"?agent foaf:member ?group . " +
-							"OPTIONAL { " + 
-								"?agent foaf:name ?agentName . " + 	
-							"}" + 
+							"?agent prov:hadRole ?group . " +
 						"}";
 		
 		System.out.println(query);

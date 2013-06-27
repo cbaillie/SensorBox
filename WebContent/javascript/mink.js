@@ -101,10 +101,10 @@
 				tooltip.append($("<p><strong>Mink spotted</strong>: " + results.count + "</p>"))
 					   .append($("<p><strong>Sighting made</strong>: " + parseDate(results.samplingTime) + "</p>"))
 					   .append($("<p><strong>Report made</strong>: " + parseDate(results.resultTime) + "</p>"))
-					   .append($("<p><strong>Status</strong>: " + results.status + " </p>"))
+					   .append($("<p style=\"margin-bottom: 25px\"><strong>Status</strong>: " + results.status + " </p>"))
 					   .append($("<h3>Attributed to</h3>"))
 					   .append($("<p><strong>Name</strong>: " + results.agent.name + "</p>"))
-					   .append($("<p><strong>Member of</strong>: " + results.agent.group + "</p>"));
+					   .append($("<p><strong>Role</strong>: " + results.agent.group + "</p>"));
 				
 				close = $("<div/>",{
 					class: "closeBox"
